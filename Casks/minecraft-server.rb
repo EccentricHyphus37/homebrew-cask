@@ -30,7 +30,7 @@ cask "minecraft-server" do
     File.write shimscript, <<~EOS
       #!/bin/sh
       cd '#{config_dir}' && \
-        exec /usr/bin/java ${@:--Xms1024M -Xmx1024M} -jar '#{staged_path}/server.jar' nogui
+      exec /usr/bin/java ${@:--Xms1G -Xmx2G} -Xdock:name='Minecraft Server #{version.major}' -Xdock:icon='mc_server.png' -jar '#{staged_path}/server.jar'
     EOS
   end
 
